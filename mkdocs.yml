@@ -1,4 +1,4 @@
-site_name: Minecraft Modding Notes
+site_name: Forge Modding Notes
 site_description: Modding Explained
 
 theme:
@@ -51,4 +51,6 @@ markdown_extensions:
 nav:
   - ホーム: index.md
   - 初心者向け:
-      - 環境構築: for-beginners/env-building.md
+    - 環境構築: for-beginners/env-building.md
+  - システム:
+    - Mixin: system/mixin.md
