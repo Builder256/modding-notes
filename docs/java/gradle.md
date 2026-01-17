@@ -8,8 +8,11 @@ Gradle とは、Java ビルド用のツールです。
 
 1.20.1の Forge の [build.gradle](https://github.com/MinecraftForge/MinecraftForge/blob/1.20.1/mdk/build.gradle) を例に説明していきます。
 
-```gradle title="build.gradle"
+コード中に出てくる `mod_id` や `minecraft_version` などの変数は、同階層にある `gradle.properties` ファイルで定義されている値を参照しています。
 
+### プラグイン設定
+
+```gradle title="build.gradle"
 plugins {
     id 'eclipse' // Eclipse IDE
     id 'idea' // Intellij IDEA
@@ -18,19 +21,28 @@ plugins {
 }
 ```
 Gradle プラグインという、Gradle を拡張するツールを記述する部分です。
-マイクラの関連では ForgeGradle, MixinGradle などがあります。
 
-``` title="build.gradle"
+マイクラの関連では ForgeGradle, MixinGradle 等があります。
+
+例えば ForgeGradle では
+
+- Minecaft のソースコードのダウンロード
+- 難読化の解除(リマップ)
+- 開発用クライアントの起動設定
+
+などの作業を、Gradle が自動で行ってくれます。
+
+```gradle title="build.gradle"
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
-
-    copyIdeResources = true
 }
 ```
 ここは開発環境のマッピングを指定しています。
 [#マッピング](../system/mapping.md)で解説していますが、
 
 クラス名やメソッド名、フィールド名等を読みやすくするための物です。
+
+### 開発環境でのマイクラの設定
 
 ```gradle title="build.gradle"
 minecraft {
@@ -75,18 +87,23 @@ minecraft {
 
 `client` なら `runClient` タスク、 `server` なら `runServer` タスクに対応します。他も同様です。
 
-```gardle title="build.gradle"
+```gradle title="build.gradle"
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 ```
 
-datagen の generated リソースを追加。
+Datagen の生成結果をリソースとして追加する処理です。
 
-```gardle title="build.gradle"
+```gradle title="build.gradle"
 repositories {
+    maven {
+        url "https://cursemaven.com"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    implementation fg.deobf("curse.maven:jei-238222:7391695")
 }
 ```
 
@@ -94,10 +111,15 @@ dependencies {
 
 `dependencies` に記述された依存関係は、`repositories`ブロックの中に記述されたレポジトリから参照してきます。
 
+この例では Cursemaven をリポジトリとして登録し、JEI を依存関係として登録しています。
+
 詳しくは [#依存関係](dependency.md) を参照してください。
 
-
+以下他の設定
 ```gradle title="build.gradle"
+/**
+    mods.tomlにあるテンプレートリテラルを実際の値に置き換える処理
+*/
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
             minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
@@ -113,6 +135,9 @@ tasks.named('processResources', ProcessResources).configure {
     }
 }
 
+/**
+    Jarファイルのメタデータを設定
+*/
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([
@@ -129,7 +154,9 @@ tasks.named('jar', Jar).configure {
     finalizedBy 'reobfJar'
 }
 
-
+/**
+    パブリッシング設定
+*/
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
@@ -143,7 +170,10 @@ publishing {
     }
 }
 
+/**
+    Javaコンパイル時のエンコーディングをUTF-8に設定
+*/
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.encoding = 'UTF-8'
 }
 ```
