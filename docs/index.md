@@ -9,5 +9,5 @@ Minecraft Mod 開発のための情報をいくつかまとめたサイトです
 `<modid>`のように`<>`で囲まれた部分は適切なものに置き換えてください。
 
 ## 初心者の方へ
-[#環境構築](for-beginners/env-building.md)
+[#環境構築](starter/env-building.md)
 から始めてみてください。

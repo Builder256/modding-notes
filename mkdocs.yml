@@ -59,6 +59,8 @@ nav:
   - ホーム: index.md
   - 初心者向け:
     - 環境構築: for-beginners/env-building.md
+  - Modding:
+    - レジストリ: modding/registry.md
   - システム:
     - Mixin: system/mixin.md
     - マッピング: system/mapping.md
