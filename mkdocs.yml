@@ -55,6 +55,10 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
 
+plugins:
+  - search:
+      lang: 'ja'
+
 nav:
   - ホーム: index.md
   - 初心者向け:
