@@ -13,7 +13,7 @@
     
     Intellijを起動してランチャーメニューになったら、サイドバーのPluginsタブから {==Japanese Language Pack==} と検索してインストールします。
     インストール後に Intellij を再起動すれば日本語化が反映されます。
-    ![](../assets/intellij/intellij-japanese-ext.png)
+    ![](../../assets/intellij/intellij-japanese-ext.png)
 
 3. **Minecraft Development プラグインをインストール**
 
@@ -107,7 +107,7 @@ JDK は Java を実行するためのキットのようなもの、と捉えて�
 
 Intellij であれば、左上の ≡ メニュー->ファイル->プロジェクト構成->プロジェクトと進み、SDK[^2]を指定できると思いますが、そこで{==JDKのダウンロード...==}を選択することでダウンロードできます。
 
-![JDKのダウンロード](../assets/intellij/jdk-download.png)
+![JDKのダウンロード](../../assets/intellij/jdk-download.png)
 
 バージョンは先程のテーブルを参考に設定してください。
 
@@ -154,7 +154,7 @@ mod_description=A example mod // Modの説明
 
 右側にある以下のような gradle アイコンを押すと、ビルドに関連する操作ができます。
 
-![](../assets/intellij/gradle.png)
+![](@assets/intellij/gradle.png)
 
 `build.gradle`を変更した場合、サイドバーの左上にループするようなアイコンがあるので、それを押すと変更が適用されます。
 

@@ -76,11 +76,12 @@ plugins:
 
 nav:
   - ホーム: index.md
-  - 初心者向け:
-    - 環境構築: starter/env-building.md
-  - システム:
-    - Mixin: system/mixin.md
-    - マッピング: system/mapping.md
-  - Java:
-    - Gradle: java/gradle.md
-    - 依存関係: java/dependency.md
+  - 入門:
+    - 環境構築: content/getting-started/setup.md
+    - 依存関係の追加: content/getting-started/dependency.md
+
+  - 発展:
+    - マッピング: content/advanced/mapping.md
+    - Gradle: content/advanced/gradle.md
+
+  - Mixin: content/mixin/index.md
