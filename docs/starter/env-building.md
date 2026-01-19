@@ -20,23 +20,25 @@
     同じくPluginsタブから {==Minecraft Development==} と検索してインストールし、完了したら一度 Intellij を再起動してください。
 
 
-## 事前知識
+## 前提知識
 
 スキップしても大丈夫ですが、迷ったときに軽く振り返ってもらえると理解しやすくなります
 
-| 用語        | 備考                                                                                             |
-| ----------- | ------------------------------------------------------------------------------------------------ |
-| Mixin       | これをオンにしない場合、依存関係を設定する時に面倒なので、オンにしておくことをおすすめします。   |
-| License     | その Mod の著作権の扱い方を宣言するもので、依存関係を設定する時、確認する必要があります。       |
-| Group ID    | パッケージの指定。ドメインを逆に書く。`io.github.作者名.プロジェクト名` のような形式がいいかも。 |
-| Package     | パッケージ。クラスをグループで管理できる仕組みで、実態としてはフォルダとほぼ同じ。               |
-| Artifact ID | 基本的にModのIDを書いておく。                                                                |
-| Class       | Java でコードを書く基本単位。1クラス1ファイルで機能ごとに分割できる                          |
+| 用語 | 備考 |
+| --- | --- |
+| Mixin | これをオンにしない場合、依存関係を設定する時に面倒なので、オンにしておくことをおすすめします |
+| License | その Mod の著作権の扱い方を宣言するもので、依存関係を設定する時、確認する必要があります |
+| Group ID | パッケージの指定。ドメインを逆に書く。ドメインを持っていなければ `io.github.作者名` のような形式が良い |
+| Package | パッケージ。クラスをグループで管理できる仕組みで、実態としてはフォルダとほぼ同じ |
+| Artifact ID | 基本的にModのIDを書いておく |
+| Class | Java でコードを書く基本単位。1クラス1ファイルで機能ごとに分割できる |
 
-| プラットフォーム | 備考                                                                                 |
-| ---------------- | ------------------------------------------------------------------------------------ |
-| NeoForge         | 1.20.4 以降はこちら。1.20.4 以降のバージョンを開発する、ほとんどの開発者が移行済み。 |
-| Forge            | 1.20.4 未満ならこちら                                                                |
+**Modローダー**
+
+| プラットフォーム | 備考 |
+| --- | --- |
+| NeoForge | 1.20.4 以降はこちら。1.20.4 以降のバージョンを開発する、ほとんどの開発者が移行済み。 |
+| Forge | 1.20.4 未満ならこちら |
 
 1.20.1は特別にNeoForgeとForgeどちらも対応しています
 
@@ -44,11 +46,11 @@
 
 いくつか方法があります
 
-NeoForgeであれば [1, (NeoForge/Fabric) Mod ジェネレータの利用](#1-neoforgefabric-mod) を推奨
+NeoForgeであれば [1, (NeoForge/Fabric) Mod ジェネレータの利用](#1-neoforgefabric-mod-ジェネレータの利用) を推奨
 
-Fabricであれば [1, (NeoForge/Fabric) Mod ジェネレータの利用](#1-neoforgefabric-mod) を推奨
+Fabricであれば [1, (NeoForge/Fabric) Mod ジェネレータの利用](#1-neoforgefabric-mod-ジェネレータの利用) を推奨
 
-Forgeであれば [4, (NeoForge/Forge/Fabric) Intellijプラグイン経由で生成](#4-neoforgeforgefabric-intellij) を推奨
+Forgeであれば [4, (NeoForge/Forge/Fabric) Intellijプラグイン経由で生成](#4-neoforgeforgefabric-intellijプラグイン経由で生成) を推奨
 
 ### 1, (NeoForge/Fabric) Mod ジェネレータの利用
 
@@ -141,12 +143,12 @@ minecraft_version_range=[1.20.1] // 単一バージョンのみ対応の場合[�
 mod_id=modding_example // Mod ID
 mod_name=ModdingExample // Mod名
 mod_license=MIT // 好きなライセンスを指定
-mod_group_id=dev.toapuro // グループID。#事前知識を参照
+mod_group_id=dev.toapuro // グループID。#前提知識を参照
 mod_authors=toapuro, another_author // 作者一覧
 mod_description=A example mod // Modの説明
 ```
 
-分からない用語は [#用語解説](#_2) を参照してください
+分からない用語は [#前提知識](#前提知識) を参照してください
 
 ## ビルド・実行の方法
 

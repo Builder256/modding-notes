@@ -374,7 +374,7 @@ public class ExampleMixin {
 * `CAPTURE_FAILSOFT`: キャプチャしますが、失敗した場合スキップ
 * `CAPTURE_FAILHARD`: キャプチャしますが、失敗した場合クラッシュ
 
-[#MixinExtrasの利用](#mixinextras) で解説する `@Local` を利用するとより可読性が高く、より安全です。
+[#MixinExtrasの利用](#mixinextrasの利用) で解説する `@Local` を利用するとより可読性が高く、より安全です。
 
 ##### **`shift`**
 
@@ -395,7 +395,7 @@ public class ExampleMixin {
 !!! warning
     特にMixinが被った場合、競合しクラッシュするので使用は控えましょう。
 
-[#MixinExtrasの利用](#mixinextras) で解説する `@ModifyExpressionValue` で記述すると安全です。
+[#MixinExtrasの利用](#mixinextrasの利用) で解説する `@ModifyExpressionValue` で記述すると安全です。
 
 #### @ModifyArg
 
@@ -482,7 +482,7 @@ private void example$uniqueMethod() {
 
 Mixinは実行時、対象のクラスにマージされているので、メソッド名が被ってしまうと競合し、クラッシュする可能性があるためです。
 
-[#Mixinトリック](#mixin_4) でこれを応用する方法を解説しています。
+[#Mixinトリック](#mixinトリック) でこれを応用する方法を解説しています。
 
 ### アクセッサー(インターフェース)
 
@@ -678,7 +678,7 @@ Mixinクラスにあるメソッドやフィールドは基本的に対象クラ
 
 他Modが同じクラスで同じメソッドをオーバーライドした場合競合するため、あまりおすすめできません。
 
-できれば [#ソフトオーバーライド](#_9) を使用してください。
+できれば [#ソフトオーバーライド](#ソフトオーバーライド) を使用してください。
 
 ```java
 public class ExampleParent {
