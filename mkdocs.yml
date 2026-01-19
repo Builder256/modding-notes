@@ -89,12 +89,10 @@ nav:
   - 入門:
     - 環境構築: content/getting-started/setup.md
     - 依存関係の追加: content/getting-started/dependency.md
+    - Modファイル構造: content/getting-started/mod-files.md
 
   - 発展:
     - マッピング: content/advanced/mapping.md
     - Gradle: content/advanced/gradle.md
-
-  - 要素の追加:
-    - Modクラス: content/component/mod.md
 
   - Mixin: content/mixin/index.md
