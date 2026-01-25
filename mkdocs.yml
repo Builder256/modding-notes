@@ -80,6 +80,9 @@ markdown_extensions:
 plugins:
   - search:
       lang: 'ja'
+  - redirects:
+      redirect_maps:
+        'index.md': 'content/index.md'
 
 hooks:
   - hooks/check.py
