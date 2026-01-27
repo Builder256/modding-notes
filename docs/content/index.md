@@ -1,8 +1,10 @@
 # Forge Modding Notes
 
-Minecraft Mod 開発のための情報をいくつかまとめたサイトです。
+Minecraft Forge 1.20.1 のMod開発に関する情報をまとめたサイトです。
 
-基本的にForge 1.20.1について解説しています。
+このサイトは公式ドキュメントの補完を目的としています。
+
+基本的な内容については [NeoForge](https://docs.neoforged.net/docs/gettingstarted/) / [Forge](https://docs.minecraftforge.net/en/1.21.x/gettingstarted/) の公式ドキュメントを参照してください。
 
 ## フォーマット
 
