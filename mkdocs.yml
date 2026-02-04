@@ -99,6 +99,14 @@ nav:
     - マッピング: content/advanced/mapping.md
     - Gradle: content/advanced/gradle.md
 
+  - レンダリング:
+    - 基本: content/rendering/basic.md
+    - 基本概念: content/rendering/api.md
+    - 描画設定: content/rendering/render-options.md
+    - レンダラー:
+      - アイテム: content/rendering/renderer/item.md
+      - モデル: content/rendering/renderer/model.md
+
   - レジストリ:
     - レジストリについて: content/registries/basic.md
     - アイテム: content/registries/item.md
