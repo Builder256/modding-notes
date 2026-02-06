@@ -83,6 +83,9 @@ plugins:
   - redirects:
       redirect_maps:
         'index.md': 'content/index.md'
+  - social:
+      cards_layout_options:
+        font_family: Noto Sans JP
 
 hooks:
   - hooks/check.py
