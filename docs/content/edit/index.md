@@ -1,38 +1,39 @@
 # Forge Modding Notes の編集方法
 
 ## 概要
-Forge Modding Notes は、知見の共有を目的としており、内容の更新、誤字脱字の修正、新しいページの追加など、あらゆるコントリビュートを歓迎します。
+Forge Modding Notes は、内容の更新、誤字脱字の修正、新しいページの追加など、あらゆる形態のコントリビュートを歓迎します。
 
 この Wiki は [MkDocs](https://www.mkdocs.org/) と [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) を使用して構築されており、GitHub 上で管理されています。
 
 ??? info "Git や Python をインストールしていない場合"
-    Git や Python などのローカル環境がない場合でも、**GitHub のウェブエディタ**を使用して、ブラウザ上だけで手軽に編集やプルリクエストの送信が可能です。
+    MkDocs は Python で動作するため、実際のサイトでの表示上で確認するにはローカル環境に Python をインストールする必要がありますが、GitHub のウェブエディタを使用することで、ブラウザ上でも編集やプルリクエストの作成が可能です。
 
-    1.  編集したいページの右上にある **「Edit this page」** アイコン（鉛筆マーク）をクリックします。
-    2.  ブラウザ上で直接内容を編集します。
-    3.  「Preview」タブで、Markdown の簡易的なレンダリング結果を確認できます。
-        *   ※アドモニションなどの MkDocs 固有の機能は正しく表示されない場合があります。
-    4.  編集が終わったら、ページ下部の 「Commit changes...」 から変更内容を送信します。
-    5.  自動的にフォークとプルリクエストの作成画面へ進みます。
+    1. 編集したいページの右上にある、鉛筆のアイコンをクリックします。
+    2. 編集画面が開くので、初回のみ、緑色の「Fork this repository」ボタンをクリックし、自身のGitHubに**リポジトリをフォーク**します。  
+    3. 編集画面がエディタに切り替わり、編集を行えるようになります。  
+       この際、「Preview」タブで、Markdown の簡易的なレンダリング結果を確認できます。  
+       アドモニションなどの MkDocs や Material for MkDocs に固有の機能は正しく表示されない場合があります。
+    4. 編集が終わったら、緑色の 「Commit changes…」 から以下のローカルでの場合と同様に**コミットを作成**します。
+    5. コミットの作成が完了すると、そのまま**プルリクエストの作成**画面へ進みます。
 
 ??? tip "ブラウザ上で完全なプレビュー環境を利用したい場合"
-    GitHub の **Codespaces** を利用すると、ブラウザ上で VS Code が起動し、Python などの環境構築を自分で行うことなく、本番同様のプレビュー（`mkdocs serve`）を実行できます。
+    GitHub の **Codespaces** を利用すると、ブラウザ上で VSCode と同様のエディタが起動し、Python などの環境構築を自分で行うことなく、本番同様のプレビュー（`mkdocs serve`）を実行できます。
     リポジトリのトップにある、緑色の「Code」ボタンから「Codespaces」タブを選択して作成してください。
 
 ---
 
-## 編集の手順（ローカル環境）
+## 編集の手順
 
 ### 1. リポジトリの準備
 
 1.  GitHub の [toapuro/modding-notes](https://github.com/toapuro/modding-notes) をフォークします。
 2.  フォークしたリポジトリをローカルにクローンします。
     ```bash title="Terminal"
-    git clone https://github.com/YOUR_USERNAME/modding-notes.git
+    git clone https://github.com/<YOUR_USERNAME>/modding-notes.git
     cd modding-notes
     ```
 
-### 2. ローカル環境の構築
+### 2. 編集環境の構築
 
 プレビューを確認するために、Python をインストールしている必要があります。
 
@@ -59,7 +60,7 @@ mkdocs serve
 
 実行後、 `http://127.0.0.1:8000/modding-notes/content/` にアクセスすると、リアルタイムでプレビューが表示されます。
 
-??? bug "リアルタイムプレビューが動作しない場合"
+??? info "リアルタイムプレビューが動作しない場合"
     2026年2月現在、[リアルタイムプレビューが動作しない不具合が報告](https://github.com/squidfunk/mkdocs-material/issues/8478)されています。
 
     この場合には、`--livereload`オプションを明示的に指定して実行することで、リアルタイムプレビューが動作する可能性があります。
@@ -92,19 +93,87 @@ GitHub 上でオリジナルのリポジトリに対してプルリクエスト�
 
 ---
 
-## 執筆のガイドライン
+## 文法
 
-### 推奨されるスタイル
+原稿は、[Markdown](https://daringfireball.net/projects/markdown/)で記述してください。
 
-- **正確性より共有**: 完璧な文章である必要はありません。有用な知見を残すことを優先してください。
-- **コードブロック**: 言語名を指定して(例: ` ```java ` )記述してください。可能であれば `title="Filename.java"` のようにタイトルを付けてください。
-- **アドモニション（注釈など）**: Material for MkDocs の機能が使用可能です。
-  ```markdown
-  !!! info "タイトル"
-      ここに内容を記述します。
-  ```
+基本的には一般的なMarkdownを使用しますが、以下に示すようないくつかの拡張記法が使用可能です。
 
-### 禁止事項
+### コードブロック
 
-- 他者の著作権を侵害する内容の転載。
+以下のように、使用するコンピュータ言語やファイル名を指定することで、シンタックスハイライトの表示や対応ファイルなどの情報を明示できます。
+
+**使用例**
+
+````markdown title="codeblock-example.md"
+```java title="Main.java"
+public class Main {
+    public static void main(String[] args) {
+          System.out.println("Hello World!");
+      }
+  }
+```
+````
+
+**結果**
+
+```java title="Main.java"
+public class Main {
+    public static void main(String[] args) {
+          System.out.println("Hello World!");
+      }
+  }
+```
+
+詳細な説明は、 [Code blocks - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/) を参照してください。
+
+### アドモニション
+
+**使用例**
+
+```markdown
+!!! info "カスタムのタイトル"
+    ここに内容を記述します。
+```
+
+**結果**
+
+!!! info "カスタムのタイトル"
+    ここに内容を記述します。
+
+詳細な説明は、 [Admonitions - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) を参照してください。
+
+### タブ
+
+**使用例**
+
+```markdown
+=== "タブ1"
+    タブ1の内容
+
+=== "タブ2"
+    タブ2の内容
+```
+
+**結果**
+
+=== "タブ1"
+    タブ1の内容
+
+=== "タブ2"
+    タブ2の内容
+
+詳細な説明は、 [Content tabs - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/) を参照してください。
+
+---
+
+## スタイルガイド
+
+!!! warning "要検討"
+    
+## 禁止事項
+
+原稿には、以下の内容を含むことはできません。注意してください
+
+- 他者の著作権を侵害する内容。
 - Minecraft の EULA に違反する内容。
