@@ -3,6 +3,11 @@
 ## 概要
 Forge Modding Notes は、内容の更新、誤字脱字の修正、新しいページの追加など、あらゆる形態のコントリビュートを歓迎します。
 
+このWikiでは、完全性や正確性よりも**共有できる知見**を残すことを目的としています。  
+そのため、未完成の状態でも、Draft PR として送っていただければサポートができるかもしれません。
+
+また、誤りがあった場合でも、レビュー時に確認を行うので問題ありません。
+
 この Wiki は [MkDocs](https://www.mkdocs.org/) と [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) を使用して構築されており、GitHub 上で管理されています。
 
 ??? info "Git や Python をインストールしていない場合"
@@ -74,15 +79,16 @@ mkdocs serve
 変更が完了したら、コミットしてプッシュします。
 
 **コミットメッセージの形式:**
-[`CONTRIBUTING.md`](https://github.com/toapuro/modding-notes/blob/master/CONTRIBUTING.md) に基づき、以下の形式を使用してください。
+以下のいずれかの形式を使用してください。
 
 - `Add: <内容>` : ドキュメントの新規追加
 - `Update: <内容>` : ドキュメントの更新
-- `Fix: <内容>` : 誤字脱字やバグの修正
+- `Fix: <内容>` : ドキュメントの誤字脱字や表現の修正、バグの修正
+- `Ci: <内容>` : GitHub Actions などの CI 設定の変更
 
 ```bash title="Terminal"
 git add .
-git commit -m "Update: 編集方法のページを追加"
+git commit -m "Add: 編集方法のページを追加"
 git push origin main
 ```
 
@@ -109,9 +115,9 @@ GitHub 上でオリジナルのリポジトリに対してプルリクエスト�
 ```java title="Main.java"
 public class Main {
     public static void main(String[] args) {
-          System.out.println("Hello World!");
-      }
-  }
+        System.out.println("Hello World!");
+    }
+}
 ```
 ````
 
@@ -120,9 +126,9 @@ public class Main {
 ```java title="Main.java"
 public class Main {
     public static void main(String[] args) {
-          System.out.println("Hello World!");
-      }
-  }
+        System.out.println("Hello World!");
+    }
+}
 ```
 
 詳細な説明は、 [Code blocks - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/) を参照してください。
@@ -170,7 +176,7 @@ public class Main {
 ## スタイルガイド
 
 !!! warning "要検討"
-    
+
 ## 禁止事項
 
 原稿には、以下の内容を含むことはできません。注意してください
